@@ -10,34 +10,34 @@ a **beautiful, interactive web application** powered by 5 specialized AI agents 
 ## 🤖 meet Your AI agent team
 
 1. 🔥 **Kwame** - Event Scout
-- **Role**: discovers all the hottest events happening this week
-- **Expertise**: concerts, festivals, club nights, art shows, theater
-- **Vibe**: energetic, well-connected, always on the pulse
-- **Language**: natural mix of English & Swahili
+- **role**: discovers all the hottest events happening this week
+- **expertise**: concerts, festivals, club nights, art shows, theater
+- **vibe**: energetic, well-connected, always on the pulse
+- **language**: natural mix of English & Swahili
 
 2. 💎 **Zuri** - Local Insider  
-- **Role**: shares hidden gems and insider knowledge
-- **Expertise**: secret spots, food recommendations, local hacks
-- **Vibe**: warm, funny, generous with knowledge
-- **Language**: drops sheng' naturally, very authentic
+- **role**: shares hidden gems and insider knowledge
+- **expertise**: secret spots, food recommendations, local hacks
+- **vibe**: warm, funny, generous with knowledge
+- **language**: drops sheng' naturally, very authentic
 
 3. 🎨 **Malaika** - Culture Critic
-- **Role**: analyzes trends and provides cultural commentary
-- **Expertise**: music movements, fashion & art scene, cultural shifts
-- **Vibe**: thoughtful, insightful, celebrates local creativity
-- **Language**: sophisticated but conversational
+- **role**: analyzes trends and provides cultural commentary
+- **expertise**: music movements, fashion & art scene, cultural shifts
+- **vibe**: thoughtful, insightful, celebrates local creativity
+- **language**: sophisticated but conversational
 
 4. 📰 **Shani** - News Curator
-- **Role**: surfaces relevant city news and updates
-- **Expertise**: infrastructure, policy changes, new openings
-- **Vibe**: informed, concise, practical
-- **Language**: clear and informative
+- **role**: surfaces relevant city news and updates
+- **expertise**: infrastructure, policy changes, new openings
+- **vibe**: informed, concise, practical
+- **language**: clear and informative
 
 5. ✨ **Amira** - Chief Editor
-- **Role**: weaves everything into a cohesive digest
-- **Expertise**: storytelling, curation, narrative flow
-- **Vibe**: impeccable taste, warm yet sophisticated
-- **Language**: premium newsletter quality
+- **role**: weaves everything into a cohesive digest
+- **expertise**: storytelling, curation, narrative flow
+- **vibe**: impeccable taste, warm yet sophisticated
+- **language**: premium newsletter quality
 
 
 
@@ -59,13 +59,13 @@ Step 2: open the app
 
 1. double-click `nairobi-weekly.html` to open in your browser
                 OR
-2. right-click → Open With → Your favorite browser
+2. right-click → open With → your favorite browser
 
 step 3: generate your digest
 
 1. paste your API key in the input field
 2. click **"Generate Weekly Digest"**
-3. watch the agents work their magic! You'll see each agent activate in sequence
+3. watch the agents work their magic! you'll see each agent activate in sequence
 4. download your beautiful digest when complete
 
 
@@ -88,8 +88,8 @@ unlike simple chatbots, this uses **coordinated AI agents**:
 - sequential workflow ensures coherence
 - real-time status updates show progress
 
-### authentic Nairobi Voice
-- uses real venue names (Carnivore, The Alchemist, K1, etc.)
+### authentic Nairobi voice
+- uses real venue names (Geco Cafe, Muze, Bao Box, etc.)
 - mixes english and swahili naturally
 - drops local slang (sheng') appropriately
 - references actual neighborhoods and landmarks
@@ -97,15 +97,15 @@ unlike simple chatbots, this uses **coordinated AI agents**:
 
 ### comprehensive coverage
 each digest includes:
-- **Events**: concerts, shows, festivals, club nights
-- **New Spots**: cestaurant launches, bars, experience centers
-- **Insider Tips**: hidden gems, local hacks, secret menus
-- **Cultural Commentary**: trends, movements, emerging talent
-- **Relevant News**: city developments, policy updates
+- **events**: concerts, shows, festivals, club nights
+- **new spots**: cestaurant launches, bars, experience centers
+- **insider tips**: hidden gems, local hacks, secret menus
+- **cultural commentary**: trends, movements, emerging talent
+- **relevant news**: city developments, policy updates
 
 
 
-## 📋 Sample Output Structure
+## 📋 sample output structure
 
 ```
 NAIROBI WEEKLY
@@ -140,45 +140,45 @@ Thoughtful note on Nairobi's creative energy
 
 
 
-## 💡 Pro Tips
+## 💡 pro tips
 
-### For Best Results:
-- **Run weekly** - AI generates fresh content each time
-- **Different days** = different recommendations
-- **Save your digests** - Build a collection over time
+### for best results:
+- **run weekly** - AI generates fresh content each time
+- **different days** = different recommendations
+- **save your digests** - build a collection over time
 
-### Sharing Your Digests:
-- Download as text file (built-in button)
-- Copy-paste to social media
-- Email to friends
-- Post on blogs/newsletters
-- Share as WhatsApp status
+### sharing your digests:
+- download as text file (built-in button)
+- copy-paste to social media
+- email to friends
+- post on blogs/newsletters
+- share as WhatsApp status
 
 
-## 🎯 Use Cases
+## 🎯 use cases
 
-Perfect for:
-- **Event promoters** - Stay current with competition
-- **Content creators** - Generate social media content
-- **Tourists** - Discover authentic Nairobi experiences
-- **Locals** - Find hidden gems in your own city
-- **Bloggers** - Create weekly entertainment roundups
-- **Newsletter writers** - Curated local content
+erfect for:
+- **event promoters** - stay current with competition
+- **content creators** - generate social media content
+- **tourists** - discover authentic Nairobi experiences
+- **locals** - find hidden gems in your own city
+- **bloggers** - create weekly entertainment roundups
+- **newsletter writers** - curated local content
 
 
 ## 🛠⚡ tech stack + performance
-- **Fast load time** - single HTML file
-- **No build process** - works immediately
+- **fast load time** - single HTML file
+- **no build process** - works immediately
 - **CDN dependencies** - React, Babel
-- **Optimized animations** - CSS 
-- **Smooth scrolling** - native browser features
+- **optimized animations** - CSS 
+- **smooth scrolling** - native browser features
 
 
 ## 🎨 design philosophy
-- **Bold** - Dark theme with vibrant accents
-- **Sophisticated** - Playfair Display + DM Sans
-- **Authentic** - Feels like a premium Nairobi brand
-- **Memorable** - Grain texture, gradients, animations
-- **Functional** - Every element serves a purpose
+- **bold** - Dark theme with vibrant accents
+- **sophisticated** - Playfair Display + DM Sans
+- **authentic** - Feels like a premium Nairobi brand
+- **memorable** - Grain texture, gradients, animations
+- **functional** - Every element serves a purpose
 
 
