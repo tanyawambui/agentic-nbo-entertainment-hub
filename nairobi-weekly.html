@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nairobi Weekly - Entertainment Guide Powered by AI</title> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-secondary: #131820;
+            --bg-card: #1a1f2e;
+            --accent-primary: #ff6b35;
+            --accent-secondary: #f7931e;
+            --accent-tertiary: #ffd23f;
+            --text-primary: #f8f9fa;
+            --text-secondary: #b8bfc6;
+            --text-muted: #6c757d;
+            --border-color: #2a3142;
+            --gradient-fire: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd23f 100%);
+            --gradient-night: linear-gradient(180deg, #0a0e14 0%, #1a1f2e 100%);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Styles */
+        .header {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-glow {
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.6; transform: translateX(-50%) scale(1.1); }
+        }
+
+        .logo-section {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            background: var(--gradient-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tagline {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: fadeIn 1.5s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .intro-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .intro-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* API Key Section */
+        .api-key-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .api-key-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-secondary);
+        }
+
+        .api-input-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .api-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Space Mono', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .api-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            background: var(--gradient-fire);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Agent Cards */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .agent-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-fire);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .agent-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .agent-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .agent-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .agent-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent-secondary);
+        }
+
+        .agent-role {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .agent-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .agent-status {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .agent-status.active {
+            color: var(--accent-secondary);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Results Section */
+        .results-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .results-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .digest-content {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            white-space: pre-wrap;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .digest-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .digest-content::-webkit-scrollbar-track {
+            background: var(--bg-card);
+            border-radius: 4px;
+        }
+
+        .digest-content::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        .loading-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: #ff6b6b;
+            margin-top: 1rem;
+        }
+
+        .success-message {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: #51cf66;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 6rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .api-input-group {
+                flex-direction: column;
+            }
+            
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const AGENTS = [
+            {
+                id: 'scout',
+                name: 'Kwame',
+                role: 'Event Scout',
+                icon: '🔥',
+                description: 'Discovers the hottest events, concerts, festivals, and happenings across Nairobi. Always plugged into the city\'s pulse.',
+                systemPrompt: `You are Kwame, an energetic and well-connected event scout in Nairobi. You discover concerts, art shows, festivals, club nights, cultural happenings, new restaurants, and pop-up experiences. You speak with genuine Nairobi energy, mixing English and Swahili naturally. You know all the venues: Carnivore, The Alchemist, Alliance Française, The Nest, K1 Klubhouse, Ngong Racecourse, Uhuru Gardens, etc.
+Current date: ${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+
+Create a vibrant list of 6-8 events happening THIS WEEK in Nairobi. Include:
+- Live music (Gengetone, Afrobeats, Jazz, Gospel)
+- Art exhibitions and gallery openings
+- Food festivals and restaurant launches
+- Club events and DJ nights
+- Theater and cultural performances
+- Sports events and outdoor activities
+- New spots opening (bars, cafes, experience centers)
+
+Make it feel REAL - use actual Nairobi venues and create believable event names. Write with excitement and local authenticity. Keep each event description punchy - 2-3 sentences max.`
+            },
+            {
+                id: 'insider',
+                name: 'Zuri',
+                role: 'Local Insider',
+                icon: '💎',
+                description: 'Born and raised in Nairobi. Knows every hidden gem, secret spot, and local hack. Your connection to authentic Nairobi experiences.',
+                systemPrompt: `You are Wanjiku, a true Nairobian who knows EVERYTHING about the city. You share hidden gems, secret menus, local hacks, and insider knowledge that tourists and even many locals don't know. You're warm, generous, funny, and want everyone to experience Nairobi like a local.
+
+Share 4-5 insider tips for this week including:
+- A hidden gem venue or event most people don't know about
+- Food/drink recommendations (best nyama choma, new brunch spot, secret cafes)
+- Local hacks (best times to visit, how to skip queues, parking tips)
+- New spots that just opened
+- Something uniquely Nairobi that people should experience
+
+Write like you're texting your best friend. Be specific with locations and names. Drop Sheng' naturally. Keep it warm and genuinely helpful.`
+            },
+            {
+                id: 'critic',
+                name: 'Malaika',
+                role: 'Culture Critic',
+                icon: '🎨',
+                description: 'Analyzes Nairobi\'s cultural scene with depth. Identifies trends, celebrates local talent, and provides thoughtful commentary.',
+                systemPrompt: `You are Kwame, a thoughtful culture critic and journalist who analyzes Nairobi's entertainment and cultural scene. You identify trends, celebrate African creative expression, and provide insightful context about what's happening in the city's arts, music, and cultural landscape.
+
+Based on current events and trends, write 200-250 words about what's trending in Nairobi right now:
+- Music movements (Gengetone evolution, Afrobeats scene, etc.)
+- Art and creative scene developments
+- Cultural shifts and emerging talent
+- What makes Nairobi's scene unique right now
+
+Write thoughtfully but conversationally - like chatting over coffee at Java House. Be insightful without being pretentious. Celebrate local creativity and authenticity.`
+            },
+            {
+                id: 'news',
+                name: 'Shani',
+                role: 'News Curator',
+                icon: '📰',
+                description: 'Curates relevant Nairobi news, city developments, and important updates that impact entertainment and lifestyle.',
+                systemPrompt: `You are Zuri, a news curator focused on Nairobi's development, lifestyle, and entertainment-related news. You surface important updates that affect how people experience the city.
+
+Share 3-4 relevant news items or city updates:
+- New infrastructure or transport developments
+- Policy changes affecting nightlife/entertainment
+- Major events or festivals being announced
+- Business/venue openings or closings
+- Cultural initiatives or programs
+- Safety or travel advisories if relevant
+
+Keep each item brief (2-3 sentences). Focus on what matters to people who want to enjoy Nairobi. Be informative but conversational.`
+            },
+            {
+                id: 'curator',
+                name: 'Amira',
+                role: 'Chief Editor',
+                icon: '✨',
+                description: 'Weaves everything together into a beautiful, cohesive weekly digest. Master storyteller with impeccable taste.',
+                systemPrompt: `You are Otieno, the chief editor who creates the final weekly digest. You have impeccable taste and a gift for weaving different voices into something cohesive, informative, and intimate - like a beautifully curated newsletter from a trusted friend.
+
+You'll receive input from:
+- Amara (Events)
+- Wanjiku (Insider Tips)
+- Kwame (Cultural Commentary)
+- Zuri (News)
+
+Create a beautifully structured digest (600-700 words) with:
+
+1. **Opening** (2-3 sentences) - Set the vibe for the week
+2. **This Week in Nairobi** - Weave together the best events naturally
+3. **New Spots & Hidden Gems** - Wanjiku's insider knowledge
+4. **Cultural Pulse** - Kwame's insights on trends
+5. **What You Need to Know** - Zuri's relevant news
+6. **Closing Note** - Inspiring thought about Nairobi's creative energy
+
+Make it feel premium yet warm and accessible. Use emojis sparingly and tastefully. Write in a way that makes people excited to experience Nairobi.
+
+Date it: Week of ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`
+            }
+        ];
+
+        function NairobiWeekly() {
+            const [apiKey, setApiKey] = useState('');
+            const [isGenerating, setIsGenerating] = useState(false);
+            const [activeAgent, setActiveAgent] = useState(null);
+            const [agentOutputs, setAgentOutputs] = useState({});
+            const [finalDigest, setFinalDigest] = useState('');
+            const [error, setError] = useState('');
+
+            const callGeminiAPI = async (prompt, agentId) => {
+                const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=' + apiKey, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: prompt }]
+                        }],
+                        generationConfig: {
+                            temperature: 0.9,
+                            maxOutputTokens: 2048,
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            };
+
+            const generateDigest = async () => {
+                if (!apiKey.trim()) {
+                    setError('Please enter your Google AI Studio API key');
+                    return;
+                }
+
+                setIsGenerating(true);
+                setError('');
+                setAgentOutputs({});
+                setFinalDigest('');
+
+                try {
+                    const outputs = {};
+
+                    // Run each agent sequentially
+                    for (const agent of AGENTS.slice(0, -1)) { // All except curator
+                        setActiveAgent(agent.id);
+                        const output = await callGeminiAPI(agent.systemPrompt, agent.id);
+                        outputs[agent.id] = output;
+                        setAgentOutputs(prev => ({ ...prev, [agent.id]: output }));
+                        await new Promise(resolve => setTimeout(resolve, 500)); // Brief pause
+                    }
+
+                    // Now run the curator with all inputs
+                    setActiveAgent('curator');
+                    const curatorAgent = AGENTS[AGENTS.length - 1];
+                    const curatorPrompt = `${curatorAgent.systemPrompt}
+
+INPUTS FROM THE TEAM:
+
+=== AMARA'S EVENT DISCOVERIES ===
+${outputs.scout}
+
+=== WANJIKU'S INSIDER TIPS ===
+${outputs.insider}
+
+=== KWAME'S CULTURAL COMMENTARY ===
+${outputs.critic}
+
+=== ZURI'S NEWS UPDATES ===
+${outputs.news}
+
+Now weave these together into the final cohesive weekly digest.`;
+
+                    const digest = await callGeminiAPI(curatorPrompt, 'curator');
+                    setFinalDigest(digest);
+
+                } catch (err) {
+                    setError(err.message || 'Failed to generate digest. Check your API key and try again.');
+                } finally {
+                    setIsGenerating(false);
+                    setActiveAgent(null);
+                }
+            };
+
+            const downloadDigest = () => {
+                const date = new Date().toISOString().split('T')[0];
+                const blob = new Blob([finalDigest], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `nairobi-weekly-${date}.txt`;
+                a.click();
+                URL.revokeObjectURL(url);
+            };
+
+            return (
+                <div className="app-container">
+                    <header className="header">
+                        <div className="header-glow"></div>
+                        <div className="logo-section">
+                            <h1 className="logo">Nairobi Weekly</h1>
+                            <p className="tagline">Entertainment Guide powered by AI</p>
+                        </div>
+                    </header>
+
+                    <main className="main-content">
+                        <div className="intro-section">
+                            <h2>Discover What's Happening in Nairobi</h2>
+                            <p>
+                                Five specialized AI agents work together to bring you the most comprehensive, 
+                                authentic, and exciting weekly digest of events, new spots, insider tips, 
+                                cultural trends, and relevant news from Kenya's vibrant capital.
+                            </p>
+                        </div>
+
+                        <div className="api-key-section">
+                            <h3>🚀 Get Started</h3>
+                            <p style={{color: 'var(--text-secondary)', marginBottom: '1rem'}}>
+                                Enter your Google AI Studio API key to generate your personalized weekly digest.
+                                <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" 
+                                   style={{color: 'var(--accent-secondary)', marginLeft: '0.5rem'}}>
+                                    Get a free API key →
+                                </a>
+                            </p>
+                            <div className="api-input-group">
+                                <input
+                                    type="password"
+                                    className="api-input"
+                                    placeholder="AIza..."
+                                    value={apiKey}
+                                    onChange={(e) => setApiKey(e.target.value)}
+                                    disabled={isGenerating}
+                                />
+                                <button 
+                                    className="btn"
+                                    onClick={generateDigest}
+                                    disabled={isGenerating || !apiKey.trim()}
+                                >
+                                    {isGenerating ? 'Generating...' : 'Generate Weekly Digest'}
+                                </button>
+                            </div>
+                            {error && <div className="error-message">⚠️ {error}</div>}
+                        </div>
+
+                        <div className="agents-grid">
+                            {AGENTS.map((agent, index) => (
+                                <div 
+                                    key={agent.id} 
+                                    className="agent-card"
+                                    style={{
+                                        animation: `fadeInUp 0.6s ease-out ${0.2 * index}s both`
+                                    }}
+                                >
+                                    <span className="agent-icon">{agent.icon}</span>
+                                    <h3 className="agent-name">{agent.name}</h3>
+                                    <div className="agent-role">{agent.role}</div>
+                                    <p className="agent-description">{agent.description}</p>
+                                    {isGenerating && (
+                                        <div className={`agent-status ${activeAgent === agent.id ? 'active' : ''}`}>
+                                            {activeAgent === agent.id ? '● Working...' : 
+                                             agentOutputs[agent.id] ? '✓ Complete' : '○ Waiting'}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+
+                        {isGenerating && !finalDigest && (
+                            <div className="loading-state">
+                                <div className="loading-spinner"></div>
+                                <p style={{color: 'var(--text-secondary)', fontSize: '1.1rem'}}>
+                                    {activeAgent === 'curator' 
+                                        ? 'Otieno is weaving everything together...' 
+                                        : 'Our agents are discovering the best of Nairobi...'}
+                                </p>
+                            </div>
+                        )}
+
+                        {finalDigest && (
+                            <div className="results-section">
+                                <h2>Your Weekly Digest</h2>
+                                <div className="digest-content">{finalDigest}</div>
+                                <button 
+                                    className="btn" 
+                                    onClick={downloadDigest}
+                                    style={{marginTop: '2rem'}}
+                                >
+                                    Download Digest
+                                </button>
+                                <div className="success-message" style={{marginTop: '1.5rem'}}>
+                                    ✓ Your personalized Nairobi entertainment digest is ready!
+                                </div>
+                            </div>
+                        )}
+                    </main>
+
+                    <footer className="footer">
+                        <p>
+                            Powered by <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Google AI Studio</a>
+                            {' • '}
+                            Built with ❤️ for Nairobi's vibrant scene
+                            {' • '}
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                        </p>
+                    </footer>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<NairobiWeekly />, document.getElementById('root'));
+    </script>
+</body>
+</html>
