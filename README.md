@@ -1,77 +1,78 @@
 # agentic-nbo-entertainment-hub
 
-# 🎭 Nairobi Weekly - AI Multi-Agent Entertainment Guide
+🎭 Nairobi Weekly - AI Multi-Agent Entertainment Guide 🎭
 
 
-## ✨ What You've Got
-A **beautiful, interactive web application** powered by 5 specialized AI agents that work together to create comprehensive weekly entertainment digests for Nairobi. Each agent has a unique personality and expertise, making the output feel genuinely human and locally authentic.
+✨ what is it?
+a **beautiful, interactive web application** powered by 5 specialized AI agents that work together to create comprehensive weekly entertainment digests for Nairobi. Each agent has a unique personality and expertise, making the output feel genuinely human and locally authentic.
 
 
-## 🤖 Meet Your AI Agent Team
+🤖 meet Your AI agent team
 
-### 1. 🔥 **Kwame** - Event Scout
-- **Role**: Discovers all the hottest events happening this week
-- **Expertise**: Concerts, festivals, club nights, art shows, theater
-- **Vibe**: Energetic, well-connected, always on the pulse
-- **Language**: Natural mix of English & Swahili
+1. 🔥 **Kwame** - Event Scout
+- **Role**: discovers all the hottest events happening this week
+- **Expertise**: concerts, festivals, club nights, art shows, theater
+- **Vibe**: energetic, well-connected, always on the pulse
+- **Language**: natural mix of English & Swahili
 
-### 2. 💎 **Zuri** - Local Insider  
-- **Role**: Shares hidden gems and insider knowledge
-- **Expertise**: Secret spots, food recommendations, local hacks
-- **Vibe**: Warm, funny, generous with knowledge
-- **Language**: Drops Sheng' naturally, very authentic
+2. 💎 **Zuri** - Local Insider  
+- **Role**: shares hidden gems and insider knowledge
+- **Expertise**: secret spots, food recommendations, local hacks
+- **Vibe**: warm, funny, generous with knowledge
+- **Language**: drops sheng' naturally, very authentic
 
-### 3. 🎨 **Malaika** - Culture Critic
-- **Role**: Analyzes trends and provides cultural commentary
-- **Expertise**: Music movements, fashion & art scene, cultural shifts
-- **Vibe**: Thoughtful, insightful, celebrates local creativity
-- **Language**: Sophisticated but conversational
+3. 🎨 **Malaika** - Culture Critic
+- **Role**: analyzes trends and provides cultural commentary
+- **Expertise**: music movements, fashion & art scene, cultural shifts
+- **Vibe**: thoughtful, insightful, celebrates local creativity
+- **Language**: sophisticated but conversational
 
-### 4. 📰 **Shani** - News Curator
-- **Role**: Surfaces relevant city news and updates
-- **Expertise**: Infrastructure, policy changes, new openings
-- **Vibe**: Informed, concise, practical
-- **Language**: Clear and informative
+4. 📰 **Shani** - News Curator
+- **Role**: surfaces relevant city news and updates
+- **Expertise**: infrastructure, policy changes, new openings
+- **Vibe**: informed, concise, practical
+- **Language**: clear and informative
 
-### 5. ✨ **Amira** - Chief Editor
-- **Role**: Weaves everything into a cohesive digest
-- **Expertise**: Storytelling, curation, narrative flow
-- **Vibe**: Impeccable taste, warm yet sophisticated
-- **Language**: Premium newsletter quality
+5. ✨ **Amira** - Chief Editor
+- **Role**: weaves everything into a cohesive digest
+- **Expertise**: storytelling, curation, narrative flow
+- **Vibe**: impeccable taste, warm yet sophisticated
+- **Language**: premium newsletter quality
 
 
 
-## 🚀 How to Use
+🚀 how to use
 
-### Step 1: Get Your Google AI Studio API Key (Free!)
+step 1: get your Google AI Studio API key (free!)
 
-1. Go to **https://aistudio.google.com/app/apikey**
-2. Sign in with your Google account
-3. Click **"Create API Key"**
-4. Copy your key (starts with "AIza...")
+1. go to **https://aistudio.google.com/app/apikey**
+2. sign in with your Google account
+3. click **"Create API Key"**
+4. copy your key (starts with "AIza...")
 
-**Free Tier Limits:**
+**free tier limits:**
 - 60 requests per minute
 - 1,500 requests per day
-- Perfect for weekly digests!
+- perfect for weekly digests!
 
-### Step 2: Open the App
+Step 2: open the app
 
-1. Double-click `nairobi-weekly.html` to open in your browser
-2. Or right-click → Open With → Your favorite browser
+1. double-click `nairobi-weekly.html` to open in your browser
+                OR
+2. right-click → Open With → Your favorite browser
 
-### Step 3: Generate Your Digest
+step 3: generate your digest
 
-1. Paste your API key in the input field
-2. Click **"Generate Weekly Digest"**
-3. Watch the agents work their magic! You'll see each agent activate in sequence
-4. Download your beautiful digest when complete
+1. paste your API key in the input field
+2. click **"Generate Weekly Digest"**
+3. watch the agents work their magic! You'll see each agent activate in sequence
+4. download your beautiful digest when complete
 
 
 
-## 🎨 What Makes This Special
+🎨 what makes this special?
 
-### Beautiful Design
+Beautiful Design
 - **Dark, sophisticated theme** with warm orange/amber accents
 - **Playfair Display** for elegant headlines
 - **DM Sans** for clean, readable body text
@@ -80,7 +81,7 @@ A **beautiful, interactive web application** powered by 5 specialized AI agents 
 - Smooth animations and hover effects
 - Fully responsive - works on phones, tablets & desktops
 
-### Multi-Agent Intelligence
+##Multi-Agent Intelligence
 Unlike simple chatbots, this uses **coordinated AI agents**:
 - Each agent has specialized knowledge
 - Multiple perspectives create richer content
@@ -165,7 +166,7 @@ Perfect for:
 - **Newsletter writers** - Curated local content
 
 
-## ⚡ Performance
+## 🛠⚡ tech stack + performance
 - **Fast load time** - single HTML file
 - **No build process** - works immediately
 - **CDN dependencies** - React, Babel
@@ -173,9 +174,7 @@ Perfect for:
 - **Smooth scrolling** - native browser features
 
 
-## 🎨 Design Philosophy
-
-This isn't another generic AI interface. The design is:
+## 🎨 design philosophy
 - **Bold** - Dark theme with vibrant accents
 - **Sophisticated** - Playfair Display + DM Sans
 - **Authentic** - Feels like a premium Nairobi brand
