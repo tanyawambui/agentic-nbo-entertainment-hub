@@ -41,7 +41,7 @@ a **beautiful, interactive web application** powered by 5 specialized AI agents 
 
 
 
-🚀 how to use
+## 🚀 how to use
 
 step 1: get your Google AI Studio API key (free!)
 
@@ -70,38 +70,38 @@ step 3: generate your digest
 
 
 
-🎨 what makes this special?
+## 🎨 what makes this special?
 
-Beautiful Design
-- **Dark, sophisticated theme** with warm orange/amber accents
-- **Playfair Display** for elegant headlines
-- **DM Sans** for clean, readable body text
-- **Space Mono** for technical/modern touches
-- Subtle grain overlay for texture
-- Smooth animations and hover effects
-- Fully responsive - works on phones, tablets & desktops
+### beautiful design
+- **dark, sophisticated theme** with warm orange/amber accents
+- **playfair display** for elegant headlines
+- **DM sans** for clean, readable body text
+- **space mono** for technical/modern touches
+- subtle grain overlay for texture
+- smooth animations and hover effects
+- fully responsive - works on phones, tablets & desktops
 
-##Multi-Agent Intelligence
-Unlike simple chatbots, this uses **coordinated AI agents**:
-- Each agent has specialized knowledge
-- Multiple perspectives create richer content
-- Sequential workflow ensures coherence
-- Real-time status updates show progress
+### multi-agent intelligence
+unlike simple chatbots, this uses **coordinated AI agents**:
+- each agent has specialized knowledge
+- multiple perspectives create richer content
+- sequential workflow ensures coherence
+- real-time status updates show progress
 
-### Authentic Nairobi Voice
-- Uses real venue names (Carnivore, The Alchemist, K1, etc.)
-- Mixes English and Swahili naturally
-- Drops local slang (Sheng') appropriately
-- References actual neighborhoods and landmarks
-- Captures genuine Nairobi energy
+### authentic Nairobi Voice
+- uses real venue names (Carnivore, The Alchemist, K1, etc.)
+- mixes english and swahili naturally
+- drops local slang (sheng') appropriately
+- references actual neighborhoods and landmarks
+- captures genuine Nairobi energy
 
-### Comprehensive Coverage
-Each digest includes:
-- **Events**: Concerts, shows, festivals, club nights
-- **New Spots**: Restaurant launches, bars, experience centers
-- **Insider Tips**: Hidden gems, local hacks, secret menus
-- **Cultural Commentary**: Trends, movements, emerging talent
-- **Relevant News**: City developments, policy updates
+### comprehensive coverage
+each digest includes:
+- **Events**: concerts, shows, festivals, club nights
+- **New Spots**: cestaurant launches, bars, experience centers
+- **Insider Tips**: hidden gems, local hacks, secret menus
+- **Cultural Commentary**: trends, movements, emerging talent
+- **Relevant News**: city developments, policy updates
 
 
 
