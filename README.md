@@ -4,7 +4,7 @@ agentic-nbo-entertainment-hub
 
 
 ✨ what is it?
-a **beautiful, interactive web application** powered by 5 specialized AI agents that work together to create comprehensive weekly entertainment digests for Nairobi. Each agent has a unique personality and expertise, making the output feel genuinely human and locally authentic.
+a **beautiful, interactive web application** powered by 5 specialized AI agents that work together to create comprehensive weekly entertainment digests for Nairobi. each agent has a unique personality and expertise, making the output feel genuinely human and locally authentic.
 
 
 ## 🤖 meet Your AI agent team
@@ -75,7 +75,7 @@ step 3: generate your digest
 ### beautiful design
 - **dark, sophisticated theme** with warm orange/amber accents
 - **playfair display** for elegant headlines
-- **DM sans** for clean, readable body text
+- **DM Sans** for clean, readable body text
 - **space mono** for technical/modern touches
 - subtle grain overlay for texture
 - smooth animations and hover effects
@@ -175,10 +175,10 @@ erfect for:
 
 
 ## 🎨 design philosophy
-- **bold** - Dark theme with vibrant accents
-- **sophisticated** - Playfair Display + DM Sans
-- **authentic** - Feels like a premium Nairobi brand
-- **memorable** - Grain texture, gradients, animations
-- **functional** - Every element serves a purpose
+- **bold** - dark theme with vibrant accents
+- **sophisticated** - playfair display + DM Sans
+- **authentic** - feels like a premium Nairobi brand
+- **memorable** - grain texture, gradients, animations
+- **functional** - every element serves a purpose
 
 
