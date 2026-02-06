@@ -1,6 +1,6 @@
-# agentic-nbo-entertainment-hub
+agentic-nbo-entertainment-hub
 
-🎭 Nairobi Weekly - AI Multi-Agent Entertainment Guide 🎭
+# 🎭 Nairobi Weekly - AI Multi-Agent Entertainment Guide 🎭
 
 
 ✨ what is it?
