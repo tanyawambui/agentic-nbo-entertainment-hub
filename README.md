@@ -7,7 +7,7 @@
 a **beautiful, interactive web application** powered by 5 specialized AI agents that work together to create comprehensive weekly entertainment digests for Nairobi. Each agent has a unique personality and expertise, making the output feel genuinely human and locally authentic.
 
 
-# 🤖 meet Your AI agent team
+## 🤖 meet Your AI agent team
 
 1. 🔥 **Kwame** - Event Scout
 - **Role**: discovers all the hottest events happening this week
